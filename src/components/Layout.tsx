@@ -16,15 +16,11 @@ export function Layout({ children }: LayoutProps) {
         
         <div className="flex-1 flex flex-col">
           <header className="h-16 flex items-center border-b border-border bg-card px-6">
-            <SidebarTrigger asChild>
-              <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
-                <Menu className="h-4 w-4" />
-              </Button>
-            </SidebarTrigger>
+            <SidebarTrigger icon={<Menu className="h-4 w-4" />} />
             
             <div className="ml-auto flex items-center gap-4">
               <div className="text-sm text-muted-foreground">
-                Welcome to Vineeta AI Admin Panel
+                Welcome to Vinita AI Admin Panel
               </div>
             </div>
           </header>

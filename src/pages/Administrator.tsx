@@ -17,13 +17,14 @@ import {
 
 const adminData = {
   profile: {
-    name: "Vinita Rashinkar",
-    email: "admin@vinitarashinkar.in",
+    name: "Admin",
+    email: "admin@gmail.com",
     phone: "+91 98765 43210",
     location: "Mumbai, Maharashtra",
     joinDate: "January 2023",
     role: "Administrator",
-    avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
+    avatar:
+      "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
   },
   stats: {
     totalLogins: 1247,
@@ -32,15 +33,31 @@ const adminData = {
     systemUptime: "99.9%",
   },
   recentActivities: [
-    { action: "Updated user permissions", time: "2 hours ago", type: "security" },
-    { action: "Reviewed monthly reports", time: "5 hours ago", type: "management" },
-    { action: "Added new product category", time: "1 day ago", type: "product" },
+    {
+      action: "Updated user permissions",
+      time: "2 hours ago",
+      type: "security",
+    },
+    {
+      action: "Reviewed monthly reports",
+      time: "5 hours ago",
+      type: "management",
+    },
+    {
+      action: "Added new product category",
+      time: "1 day ago",
+      type: "product",
+    },
     { action: "System backup completed", time: "2 days ago", type: "system" },
-    { action: "Approved customer refunds", time: "3 days ago", type: "finance" },
+    {
+      action: "Approved customer refunds",
+      time: "3 days ago",
+      type: "finance",
+    },
   ],
   permissions: [
     "User Management",
-    "Product Management", 
+    "Product Management",
     "Order Management",
     "Financial Reports",
     "System Settings",
@@ -100,7 +117,10 @@ export default function Administrator() {
           <CardContent className="space-y-6">
             <div className="flex items-center gap-4">
               <Avatar className="h-20 w-20">
-                <AvatarImage src={adminData.profile.avatar} alt={adminData.profile.name} />
+                <AvatarImage
+                  src={adminData.profile.avatar}
+                  alt={adminData.profile.name}
+                />
                 <AvatarFallback className="text-lg">VR</AvatarFallback>
               </Avatar>
               <div>
@@ -146,7 +166,7 @@ export default function Administrator() {
           <CardContent>
             <div className="grid gap-3">
               {adminData.permissions.map((permission) => (
-                <div 
+                <div
                   key={permission}
                   className="flex items-center gap-3 p-3 border border-border rounded-lg hover:bg-accent/50 transition-colors"
                 >
@@ -173,17 +193,23 @@ export default function Administrator() {
         <CardContent>
           <div className="space-y-4">
             {adminData.recentActivities.map((activity, index) => (
-              <div 
+              <div
                 key={index}
                 className="flex items-center gap-4 p-4 border border-border rounded-lg hover:bg-accent/50 transition-colors"
               >
-                <div className={`h-2 w-2 rounded-full ${
-                  activity.type === 'security' ? 'bg-destructive' :
-                  activity.type === 'management' ? 'bg-primary' :
-                  activity.type === 'product' ? 'bg-success' :
-                  activity.type === 'system' ? 'bg-warning' :
-                  'bg-info'
-                }`} />
+                <div
+                  className={`h-2 w-2 rounded-full ${
+                    activity.type === "security"
+                      ? "bg-destructive"
+                      : activity.type === "management"
+                      ? "bg-primary"
+                      : activity.type === "product"
+                      ? "bg-success"
+                      : activity.type === "system"
+                      ? "bg-warning"
+                      : "bg-info"
+                  }`}
+                />
                 <div className="flex-1">
                   <p className="text-sm font-medium text-foreground">
                     {activity.action}
@@ -192,14 +218,18 @@ export default function Administrator() {
                     {activity.time}
                   </p>
                 </div>
-                <Badge 
-                  variant="outline" 
+                <Badge
+                  variant="outline"
                   className={`text-xs ${
-                    activity.type === 'security' ? 'border-destructive text-destructive' :
-                    activity.type === 'management' ? 'border-primary text-primary' :
-                    activity.type === 'product' ? 'border-success text-success' :
-                    activity.type === 'system' ? 'border-warning text-warning' :
-                    'border-info text-info'
+                    activity.type === "security"
+                      ? "border-destructive text-destructive"
+                      : activity.type === "management"
+                      ? "border-primary text-primary"
+                      : activity.type === "product"
+                      ? "border-success text-success"
+                      : activity.type === "system"
+                      ? "border-warning text-warning"
+                      : "border-info text-info"
                   }`}
                 >
                   {activity.type}

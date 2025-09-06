@@ -53,7 +53,7 @@ export function AppSidebar() {
           </div>
           {!isCollapsed && (
             <div className="flex flex-col">
-              <span className="text-lg font-bold text-foreground">Vineeta AI</span>
+              <span className="text-lg font-bold text-foreground">Vinita AI</span>
               <span className="text-xs text-muted-foreground">Admin Panel</span>
             </div>
           )}
