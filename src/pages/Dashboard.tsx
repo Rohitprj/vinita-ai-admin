@@ -8,8 +8,6 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
-  LineChart,
-  Line,
   PieChart,
   Pie,
   Cell,
@@ -20,7 +18,6 @@ import {
   Users,
   ShoppingCart,
   Package,
-  Calendar,
 } from "lucide-react";
 
 const revenueData = [
@@ -106,13 +103,17 @@ export default function Dashboard() {
                 <CartesianGrid strokeDasharray="3 3" className="opacity-30" />
                 <XAxis dataKey="month" />
                 <YAxis />
-                <Tooltip 
+                <Tooltip
                   formatter={(value, name) => [
-                    name === 'revenue' ? `₹${value.toLocaleString()}` : value,
-                    name === 'revenue' ? 'Revenue' : 'Orders'
+                    name === "revenue" ? `₹${value.toLocaleString()}` : value,
+                    name === "revenue" ? "Revenue" : "Orders",
                   ]}
                 />
-                <Bar dataKey="revenue" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} />
+                <Bar
+                  dataKey="revenue"
+                  fill="hsl(var(--primary))"
+                  radius={[4, 4, 0, 0]}
+                />
               </BarChart>
             </ResponsiveContainer>
           </CardContent>
@@ -142,14 +143,14 @@ export default function Dashboard() {
                     <Cell key={`cell-${index}`} fill={entry.color} />
                   ))}
                 </Pie>
-                <Tooltip formatter={(value) => [`${value}%`, 'Percentage']} />
+                <Tooltip formatter={(value) => [`${value}%`, "Percentage"]} />
               </PieChart>
             </ResponsiveContainer>
             <div className="flex justify-center gap-4 mt-4">
               {customerTypeData.map((item) => (
                 <div key={item.name} className="flex items-center gap-2">
-                  <div 
-                    className="w-3 h-3 rounded-full" 
+                  <div
+                    className="w-3 h-3 rounded-full"
                     style={{ backgroundColor: item.color }}
                   />
                   <span className="text-sm text-muted-foreground">
@@ -173,13 +174,18 @@ export default function Dashboard() {
         <CardContent>
           <div className="space-y-4">
             {topProducts.map((product, index) => (
-              <div key={product.name} className="flex items-center justify-between p-4 border border-border rounded-lg hover:bg-accent/50 transition-colors">
+              <div
+                key={product.name}
+                className="flex items-center justify-between p-4 border border-border rounded-lg hover:bg-accent/50 transition-colors"
+              >
                 <div className="flex items-center gap-4">
                   <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary font-bold">
                     {index + 1}
                   </div>
                   <div>
-                    <h4 className="font-medium text-foreground">{product.name}</h4>
+                    <h4 className="font-medium text-foreground">
+                      {product.name}
+                    </h4>
                     <p className="text-sm text-muted-foreground">
                       {product.customers} customers
                     </p>
