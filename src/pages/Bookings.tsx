@@ -2,8 +2,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { StatsCard } from "@/components/ui/stats-card";
 import {
-  BarChart,
-  Bar,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -174,17 +172,17 @@ export default function Bookings() {
               <XAxis dataKey="month" />
               <YAxis />
               <Tooltip />
-              <Line 
-                type="monotone" 
-                dataKey="bookings" 
-                stroke="hsl(var(--primary))" 
+              <Line
+                type="monotone"
+                dataKey="bookings"
+                stroke="hsl(var(--primary))"
                 strokeWidth={2}
                 name="Total Bookings"
               />
-              <Line 
-                type="monotone" 
-                dataKey="completed" 
-                stroke="hsl(var(--success))" 
+              <Line
+                type="monotone"
+                dataKey="completed"
+                stroke="hsl(var(--success))"
                 strokeWidth={2}
                 name="Completed"
               />
@@ -204,7 +202,7 @@ export default function Bookings() {
         <CardContent>
           <div className="space-y-4">
             {bookingData.recentBookings.map((booking) => (
-              <div 
+              <div
                 key={booking.id}
                 className="flex items-center justify-between p-4 border border-border rounded-lg hover:bg-accent/50 transition-colors"
               >
@@ -233,7 +231,7 @@ export default function Bookings() {
                       {booking.time} • {booking.duration}
                     </p>
                   </div>
-                  
+
                   <Badge className={getStatusColor(booking.status)}>
                     {getStatusIcon(booking.status)}
                     <span className="ml-1 capitalize">{booking.status}</span>

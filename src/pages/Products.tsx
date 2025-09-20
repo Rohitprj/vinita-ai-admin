@@ -12,15 +12,7 @@ import {
   LineChart,
   Line,
 } from "recharts";
-import {
-  Package,
-  TrendingUp,
-  Star,
-  Eye,
-  ShoppingCart,
-  Heart,
-  IndianRupee,
-} from "lucide-react";
+import { Package, TrendingUp, Star, Eye, IndianRupee } from "lucide-react";
 
 const productsData = {
   stats: {
@@ -58,7 +50,8 @@ const productsData = {
       views: 8450,
       stock: 25,
       status: "active",
-      image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=100&h=100&fit=crop",
+      image:
+        "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=100&h=100&fit=crop",
     },
     {
       id: "P002",
@@ -69,9 +62,10 @@ const productsData = {
       revenue: 1871766,
       rating: 4.8,
       views: 6720,
-      stock: 'unlimited',
+      stock: "unlimited",
       status: "active",
-      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=100&h=100&fit=crop",
+      image:
+        "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=100&h=100&fit=crop",
     },
     {
       id: "P003",
@@ -84,7 +78,8 @@ const productsData = {
       views: 4890,
       stock: 45,
       status: "active",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop",
+      image:
+        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop",
     },
     {
       id: "P004",
@@ -97,7 +92,8 @@ const productsData = {
       views: 5640,
       stock: 12,
       status: "low_stock",
-      image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=100&h=100&fit=crop",
+      image:
+        "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=100&h=100&fit=crop",
     },
     {
       id: "P005",
@@ -110,7 +106,8 @@ const productsData = {
       views: 7830,
       stock: 0,
       status: "out_of_stock",
-      image: "https://images.unsplash.com/photo-1584362917165-526a968579a8?w=100&h=100&fit=crop",
+      image:
+        "https://images.unsplash.com/photo-1584362917165-526a968579a8?w=100&h=100&fit=crop",
     },
   ],
 };
@@ -201,12 +198,23 @@ export default function Products() {
               <BarChart data={productsData.categoryData} layout="horizontal">
                 <CartesianGrid strokeDasharray="3 3" className="opacity-30" />
                 <XAxis type="number" />
-                <YAxis dataKey="category" type="category" width={120} fontSize={12} />
-                <Tooltip formatter={(value, name) => [
-                  name === 'revenue' ? `₹${value.toLocaleString()}` : value,
-                  name === 'revenue' ? 'Revenue' : 'Products'
-                ]} />
-                <Bar dataKey="products" fill="hsl(var(--primary))" radius={[0, 4, 4, 0]} />
+                <YAxis
+                  dataKey="category"
+                  type="category"
+                  width={120}
+                  fontSize={12}
+                />
+                <Tooltip
+                  formatter={(value, name) => [
+                    name === "revenue" ? `₹${value.toLocaleString()}` : value,
+                    name === "revenue" ? "Revenue" : "Products",
+                  ]}
+                />
+                <Bar
+                  dataKey="products"
+                  fill="hsl(var(--primary))"
+                  radius={[0, 4, 4, 0]}
+                />
               </BarChart>
             </ResponsiveContainer>
           </CardContent>
@@ -226,21 +234,23 @@ export default function Products() {
                 <CartesianGrid strokeDasharray="3 3" className="opacity-30" />
                 <XAxis dataKey="month" />
                 <YAxis />
-                <Tooltip formatter={(value, name) => [
-                  name === 'revenue' ? `₹${value.toLocaleString()}` : value,
-                  name === 'revenue' ? 'Revenue' : 'Sales'
-                ]} />
-                <Line 
-                  type="monotone" 
-                  dataKey="sales" 
-                  stroke="hsl(var(--primary))" 
+                <Tooltip
+                  formatter={(value, name) => [
+                    name === "revenue" ? `₹${value.toLocaleString()}` : value,
+                    name === "revenue" ? "Revenue" : "Sales",
+                  ]}
+                />
+                <Line
+                  type="monotone"
+                  dataKey="sales"
+                  stroke="hsl(var(--primary))"
                   strokeWidth={2}
                   name="Sales"
                 />
-                <Line 
-                  type="monotone" 
-                  dataKey="revenue" 
-                  stroke="hsl(var(--success))" 
+                <Line
+                  type="monotone"
+                  dataKey="revenue"
+                  stroke="hsl(var(--success))"
                   strokeWidth={2}
                   name="Revenue"
                 />
@@ -261,7 +271,7 @@ export default function Products() {
         <CardContent>
           <div className="space-y-4">
             {productsData.topProducts.map((product, index) => (
-              <div 
+              <div
                 key={product.id}
                 className="flex items-center justify-between p-4 border border-border rounded-lg hover:bg-accent/50 transition-colors"
               >
@@ -269,13 +279,15 @@ export default function Products() {
                   <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-primary font-bold text-sm">
                     {index + 1}
                   </div>
-                  <img 
-                    src={product.image} 
+                  <img
+                    src={product.image}
                     alt={product.name}
                     className="h-12 w-12 rounded-lg object-cover"
                   />
                   <div>
-                    <h4 className="font-medium text-foreground">{product.name}</h4>
+                    <h4 className="font-medium text-foreground">
+                      {product.name}
+                    </h4>
                     <div className="flex items-center gap-4 text-xs text-muted-foreground mt-1">
                       <span>{product.category}</span>
                       <span className="flex items-center gap-1">
@@ -299,7 +311,7 @@ export default function Products() {
                       {product.sales} sales
                     </p>
                   </div>
-                  
+
                   <div className="text-right">
                     <p className="text-sm font-medium text-foreground">
                       ₹{product.revenue.toLocaleString()}
@@ -309,7 +321,10 @@ export default function Products() {
 
                   <div className="text-right">
                     <p className="text-xs text-muted-foreground">
-                      Stock: {typeof product.stock === 'string' ? product.stock : product.stock}
+                      Stock:{" "}
+                      {typeof product.stock === "string"
+                        ? product.stock
+                        : product.stock}
                     </p>
                     <Badge className={getStatusColor(product.status)}>
                       {getStatusText(product.status)}

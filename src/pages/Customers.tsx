@@ -14,16 +14,7 @@ import {
   Pie,
   Cell,
 } from "recharts";
-import {
-  Users,
-  UserPlus,
-  Star,
-  TrendingUp,
-  MapPin,
-  Mail,
-  Phone,
-  Calendar,
-} from "lucide-react";
+import { Users, UserPlus, Star, TrendingUp, MapPin, Mail } from "lucide-react";
 
 const customerData = {
   stats: {
@@ -56,10 +47,11 @@ const customerData = {
       orders: 24,
       rating: 4.9,
       status: "premium",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+      avatar:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
     },
     {
-      id: "C002", 
+      id: "C002",
       name: "Priya Sharma",
       email: "priya.sharma@email.com",
       phone: "+91 87654 32109",
@@ -69,12 +61,13 @@ const customerData = {
       orders: 18,
       rating: 4.8,
       status: "premium",
-      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
+      avatar:
+        "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
     },
     {
       id: "C003",
       name: "Amit Singh",
-      email: "amit.singh@email.com", 
+      email: "amit.singh@email.com",
       phone: "+91 76543 21098",
       location: "Bangalore, Karnataka",
       joinDate: "2023-07-10",
@@ -82,20 +75,22 @@ const customerData = {
       orders: 15,
       rating: 4.7,
       status: "regular",
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+      avatar:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
     },
     {
       id: "C004",
       name: "Sneha Patel",
       email: "sneha.patel@email.com",
       phone: "+91 65432 10987",
-      location: "Pune, Maharashtra", 
+      location: "Pune, Maharashtra",
       joinDate: "2023-09-05",
       totalSpent: 76200,
       orders: 12,
       rating: 4.6,
       status: "regular",
-      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+      avatar:
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
     },
     {
       id: "C005",
@@ -108,7 +103,8 @@ const customerData = {
       orders: 9,
       rating: 4.5,
       status: "new",
-      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
+      avatar:
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
     },
   ],
 };
@@ -183,7 +179,11 @@ export default function Customers() {
                 <XAxis type="number" />
                 <YAxis dataKey="city" type="category" width={80} />
                 <Tooltip />
-                <Bar dataKey="customers" fill="hsl(var(--primary))" radius={[0, 4, 4, 0]} />
+                <Bar
+                  dataKey="customers"
+                  fill="hsl(var(--primary))"
+                  radius={[0, 4, 4, 0]}
+                />
               </BarChart>
             </ResponsiveContainer>
           </CardContent>
@@ -213,14 +213,14 @@ export default function Customers() {
                     <Cell key={`cell-${index}`} fill={entry.color} />
                   ))}
                 </Pie>
-                <Tooltip formatter={(value) => [`${value}%`, 'Percentage']} />
+                <Tooltip formatter={(value) => [`${value}%`, "Percentage"]} />
               </PieChart>
             </ResponsiveContainer>
             <div className="flex justify-center gap-4 mt-4">
               {customerData.customerTypeData.map((item) => (
                 <div key={item.name} className="flex items-center gap-2">
-                  <div 
-                    className="w-3 h-3 rounded-full" 
+                  <div
+                    className="w-3 h-3 rounded-full"
                     style={{ backgroundColor: item.color }}
                   />
                   <span className="text-sm text-muted-foreground">
@@ -244,7 +244,7 @@ export default function Customers() {
         <CardContent>
           <div className="space-y-4">
             {customerData.topCustomers.map((customer, index) => (
-              <div 
+              <div
                 key={customer.id}
                 className="flex items-center justify-between p-4 border border-border rounded-lg hover:bg-accent/50 transition-colors"
               >
@@ -254,10 +254,17 @@ export default function Customers() {
                   </div>
                   <Avatar className="h-12 w-12">
                     <AvatarImage src={customer.avatar} alt={customer.name} />
-                    <AvatarFallback>{customer.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+                    <AvatarFallback>
+                      {customer.name
+                        .split(" ")
+                        .map((n) => n[0])
+                        .join("")}
+                    </AvatarFallback>
                   </Avatar>
                   <div>
-                    <h4 className="font-medium text-foreground">{customer.name}</h4>
+                    <h4 className="font-medium text-foreground">
+                      {customer.name}
+                    </h4>
                     <div className="flex items-center gap-4 text-xs text-muted-foreground mt-1">
                       <span className="flex items-center gap-1">
                         <Mail className="h-3 w-3" />
@@ -280,10 +287,12 @@ export default function Customers() {
                       {customer.orders} orders
                     </p>
                   </div>
-                  
+
                   <div className="flex items-center gap-1">
                     <Star className="h-4 w-4 text-warning fill-current" />
-                    <span className="text-sm font-medium">{customer.rating}</span>
+                    <span className="text-sm font-medium">
+                      {customer.rating}
+                    </span>
                   </div>
 
                   <Badge className={getStatusColor(customer.status)}>

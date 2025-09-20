@@ -3,7 +3,6 @@ import {
   BarChart3,
   Users,
   Calendar,
-  ShoppingBag,
   Package,
   ShoppingCart,
   Settings,
@@ -40,8 +39,8 @@ export function AppSidebar() {
 
   const isActive = (path: string) => currentPath === path;
   const getNavCls = ({ isActive }: { isActive: boolean }) =>
-    isActive 
-      ? "bg-primary text-primary-foreground font-medium hover:bg-primary/90" 
+    isActive
+      ? "bg-primary text-primary-foreground font-medium hover:bg-primary/90"
       : "hover:bg-accent hover:text-accent-foreground";
 
   return (
@@ -53,7 +52,9 @@ export function AppSidebar() {
           </div>
           {!isCollapsed && (
             <div className="flex flex-col">
-              <span className="text-lg font-bold text-foreground">Vinita AI</span>
+              <span className="text-lg font-bold text-foreground">
+                Vinita AI
+              </span>
               <span className="text-xs text-muted-foreground">Admin Panel</span>
             </div>
           )}
